@@ -1,22 +1,32 @@
 <?php
+$field_name = $_POST['cf_name'];
+$field_email = $_POST['cf_email'];
+$field_message = $_POST['cf_message'];
 
-  $name = $_POST['name'];
-  $visitor_email = $_POST['email'];
-  $message = $_POST['message'];
+$mail_to = 'nwin123@rediffmail.com';
+$subject = 'Message from a site visitor '.$field_name;
 
-  if (empty($name) || empty($email) || empty($message))
-  {
-  echo "Please fill all the fields";}
+$body_message = 'From: '.$field_name."\n";
+$body_message .= 'E-mail: '.$field_email."\n";
+$body_message .= 'Message: '.$field_message;
 
-  else {
-    mail("nwin123@rediffmail.com", "Message", $message, "From: $name <$email>" );
-    echo "<script type='text/javascript'>alert('your message send succesfully');
-    window.history.log(-1);
-    </script>";
-  }
+$headers = 'From: '.$field_email."\r\n";
+$headers .= 'Reply-To: '.$field_email."\r\n";
 
+$mail_status = mail($mail_to, $subject, $body_message, $headers);
 
-
-
-
+if ($mail_status) { ?>
+	<script language="javascript" type="text/javascript">
+		alert('Thank you for the message. We will contact you shortly.');
+		window.history.log(-1);
+	</script>
+<?php
+}
+else { ?>
+	<script language="javascript" type="text/javascript">
+		alert('Message failed. Please, send an email to nwin123@rediffmail.com');
+		window.history.log(-1);
+	</script>
+<?php
+}
 ?>

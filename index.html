@@ -12,18 +12,17 @@
       <div class="close" onclick="closeNav2()">&times;</div>
       <img class="img" src="contact.png" width="80" height="80" style="margin-top: 10px;">
       <h5 style="font-weight: 700; margin-top: 10px; font-size: 25px;" >Contact Us</h5>
-      <form method="post" action="contact.php">
-        <label for="fname" style="font-weight: 600;">Your Name</label><br>
-        <input type="text" name="name" placeholder="Your Name" class="your"><br><br>
-        
-        <label for="email" style="font-weight: 600";>Email</label><br>
-        <input type="email" name="email" placeholder="Email" class="your"><br><br>
-        
-        <textarea name="message" class="message" placeholder="Your Message" row="4"></textarea><br>
-        <input type="submit" value="Submit" class="submit">
-        
-  
-      </form>
+      <form action="contact.php" method="post">
+        Your name<br>
+        <input type="text" name="cf_name"><br>
+        Your e-mail<br>
+        <input type="text" name="cf_email"><br>
+        Message<br>
+        <textarea name="cf_message"></textarea><br>
+        <input type="submit" value="Send">
+        <input type="reset" value="Clear">
+    </form>
+      
       <div class="powr-form-builder" id="f5a515b8_1598982243"></div><script src="https://www.powr.io/powr.js?platform=html"></script>  
       
     </div>
